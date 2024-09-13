@@ -1,13 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const randomNumber = Math.floor(Math.random() * 100) + 1;
+    let randomNumber = Math.floor(Math.random() * 100) + 1;
     const guessBtn = document.getElementById('guessBtn');
     const resetBtn = document.getElementById('resetBtn');
     const message = document.getElementById('message');
     const userGuess = document.getElementById('userGuess');
 
-    guessBtn.addEventListener('click', () => {
+    const handleGuess = () => {
         const guess = parseInt(userGuess.value);
-        
+
         if (isNaN(guess) || guess < 1 || guess > 100) {
             message.textContent = 'Please enter a valid number between 1 and 100!';
             message.style.color = 'red';
@@ -23,9 +23,30 @@ document.addEventListener('DOMContentLoaded', () => {
             guessBtn.disabled = true;
             resetBtn.style.display = 'block';
         }
+    };
+
+    const changeButtonColor = () => {
+        guessBtn.style.backgroundColor = '#00ff99';
+        setTimeout(() => {
+            guessBtn.style.backgroundColor = '#00bfff';
+        }, 500);
+    };
+
+    guessBtn.addEventListener('click', handleGuess);
+
+    userGuess.addEventListener("keypress", (e) => {
+        if (e.key === 'Enter') {
+            handleGuess();
+            changeButtonColor();
+        }
     });
 
     resetBtn.addEventListener('click', () => {
-        window.location.reload();
+        randomNumber = Math.floor(Math.random() * 100) + 1;
+        userGuess.value = '';
+        message.textContent = '';
+        guessBtn.disabled = false;
+        guessBtn.style.backgroundColor = '#00ff99';
+        resetBtn.style.display = 'none';
     });
 });
