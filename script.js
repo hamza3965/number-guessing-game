@@ -23,6 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
             guessBtn.disabled = true;
             resetBtn.style.display = 'block';
             guessBtn.style.backgroundColor = '#00bfff';
+            guessBtn.style.display = 'none';
+            userGuess.style.display = 'none';
         }
     };
 
