@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    padding: 0 17px;
+    background-color: #111;
+    color: #fff;
+}
+
+.game-container {
+    background-color: #222;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+    transition: 0.4s ease-in-out;
+}
+
+.game-container:hover {
+    transform: scale(1.05);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #00bfff;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.description {
+    margin-bottom: 20px;
+    color: #00ff99;
+}
+
+input {
+    padding: 10px 4px 10px 10px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    width: 200px;
+    outline: none;
+    background-color: #333;
+    color: #fff;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #00bfff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #00ff99;
+}
+
+.message {
+    margin-top: 20px;
+    font-size: 1.5rem;
+}
+
+#resetBtn {
+    margin-top: 20px;
+    display: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    input, button {
+        font-size: 1rem;
+        width: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    input, button {
+        font-size: 0.9rem;
+        width: 96%;
+    }
+}
