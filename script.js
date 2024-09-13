@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
             message.style.color = '#00ff99';
             guessBtn.disabled = true;
             resetBtn.style.display = 'block';
+            guessBtn.style.backgroundColor = '#00bfff';
         }
     };
 
@@ -32,12 +33,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 500);
     };
 
-    guessBtn.addEventListener('click', handleGuess);
+    guessBtn.addEventListener('click', () => {
+        handleGuess();
+        changeButtonColor(); // Change color on button click as well
+    });
 
     userGuess.addEventListener("keypress", (e) => {
         if (e.key === 'Enter') {
             handleGuess();
-            changeButtonColor();
+            changeButtonColor(); // Change color on Enter keypress
         }
     });
 
@@ -46,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         userGuess.value = '';
         message.textContent = '';
         guessBtn.disabled = false;
-        guessBtn.style.backgroundColor = '#00ff99';
+        guessBtn.style.backgroundColor = '#00bfff'; // Reset button background
         resetBtn.style.display = 'none';
     });
 });
